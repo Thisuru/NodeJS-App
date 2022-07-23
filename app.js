@@ -1,18 +1,6 @@
-const http = require('http');
+const _ = require('lodash');
 
-const server = http.createServer((req, res)=>{
-    if(req.url === '/'){
-        res.end('Welcome to the home page')
-    } else if(req.url === '/about'){
-        res.end('About Page')
-    } else {
-        res.end(`
-            <h1> OOPS !!! </h1>
-            <p>You have requested for any wrong address </p>
-            <a href = "/">Get back to HOME Page</a>
-        `)
+const items = [1, [2, [3, [4]]]]
+const newItems = _.flattenDeep(items)
 
-    }
-})
-
-server.listen(5000)
+console.log(newItems); 
